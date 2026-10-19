@@ -1,0 +1,44 @@
+{
+  "enhancement_method": "clahe_gamma",
+  "clahe": {
+    "clip_limit": 2.0,
+    "tile_grid_size": [
+      8,
+      8
+    ]
+  },
+  "gamma": {
+    "value": 1.2
+  },
+  "retinex_sigma_not_default_path": {
+    "sigma": 30.0
+  },
+  "low_light": {
+    "enabled": true,
+    "fraction": 0.5,
+    "brightness_range": [
+      0.15,
+      0.45
+    ],
+    "noise_std": 8.0,
+    "gamma_dark": [
+      1.8,
+      2.8
+    ]
+  },
+  "image_size": [
+    224,
+    224
+  ],
+  "face_detector": "mediapipe",
+  "demo_default_threshold": 0.5,
+  "evaluation_confidence_threshold": 0.5,
+  "enrollment_match_threshold": 0.72,
+  "token_0_52_hits_in_system_code": [],
+  "readme_data": "data/README_DATA.md",
+  "pipeline_order_in_code": [
+    "optional simulate_low_light on the full BGR frame",
+    "detect_and_align_face (crop + resize to image_size); if no face, cv2.resize",
+    "enhance_image: CLAHE on the L channel then gamma LUT"
+  ]
+}

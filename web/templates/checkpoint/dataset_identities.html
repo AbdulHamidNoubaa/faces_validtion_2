@@ -1,0 +1,54 @@
+{% extends "checkpoint/base.html" %}
+
+{% block title %}هويات مجموعة البيانات — {{ site_title_ar }}{% endblock %}
+{% block header_title %}هويات البيانات{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card__header">
+    <h3 class="card__title">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      جميع الهويات
+    </h3>
+    <a href="{% url 'checkpoint:data_overview' %}" class="btn btn--ghost btn--sm">← نظرة عامة</a>
+  </div>
+
+  <div class="table-toolbar">
+    <div class="table-search">
+      <input type="text" class="table-search__input" placeholder="بحث بالهوية..." data-table-search="id-table">
+      <span class="table-search__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </span>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="table" id="id-table">
+      <thead>
+        <tr>
+          <th>الهوية</th>
+          <th>Label</th>
+          <th>Train</th>
+          <th>Val</th>
+          <th>Test</th>
+          <th>Low-light</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in identities %}
+        <tr>
+          <td><span class="font-medium">{{ row.identity }}</span></td>
+          <td>{{ row.label }}</td>
+          <td>{{ row.train }}</td>
+          <td>{{ row.val }}</td>
+          <td>{{ row.test }}</td>
+          <td>{{ row.low_light }}</td>
+          <td><a href="{% url 'checkpoint:data_identity' row.identity %}" class="btn btn--ghost btn--sm">عينات</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

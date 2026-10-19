@@ -1,0 +1,106 @@
+# =============================================================================
+# Banking Face Recognition under Low Light — Central Configuration
+# All tunable parameters live here. Paths are relative to project root.
+# =============================================================================
+
+project:
+  name: "banking-face-recognition-lowlight"
+  seed: 42
+  task: "closed_set_classification"  # closed-set identity recognition
+
+paths:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  models_dir: "outputs/models"
+  logs_dir: "outputs/logs"
+  reports_dir: "outputs/reports"
+  label_map: "data/processed/label_map.json"
+  splits_file: "data/processed/splits.json"
+
+dataset:
+  name: "lfw"  # lfw | celeba | custom
+  # Minimum images per identity (LFW has many people with 1–2 images)
+  min_images_per_identity: 10
+  max_identities: 30  # academic subset; set null for all qualifying identities
+  # Split ratios (must sum to 1.0)
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+  # Artificial low-light simulation applied to a fraction of each split
+  low_light:
+    enabled: true
+    fraction: 0.5  # 50% of images get simulated low light
+    brightness_range: [0.15, 0.45]
+    noise_std: 8.0
+    gamma_dark: [1.8, 2.8]
+
+preprocessing:
+  image_size: [224, 224]
+  face_detector: "mediapipe"  # mediapipe | opencv_haar
+  mediapipe_min_confidence: 0.5
+  # Low-light enhancement method: clahe_gamma | retinex | none
+  enhancement_method: "clahe_gamma"
+  clahe:
+    clip_limit: 2.0
+    tile_grid_size: [8, 8]
+  gamma:
+    value: 1.2  # >1 brightens after CLAHE; tune per dataset
+  retinex:
+    sigma: 30.0
+  augmentation:
+    enabled: true
+    rotation_range: 10
+    horizontal_flip: true
+    brightness_delta: 0.15
+    noise_std: 5.0
+
+model:
+  architecture: "mobilenetv2"  # mobilenetv2 | mobilenetv1 | resnet50 | vgg16
+  input_shape: [224, 224, 3]
+  dropout: 0.3
+  dense_units: 256
+  # Transfer learning
+  freeze_base: true
+  fine_tune:
+    enabled: true
+    unfreeze_last_n_layers: 30
+    fine_tune_learning_rate: 0.00001
+
+training:
+  batch_size: 32
+  epochs_head: 10       # train classifier head with frozen base
+  epochs_finetune: 12   # fine-tune last layers
+  learning_rate: 0.001
+  optimizer: "adam"     # adam | sgd
+  early_stopping_patience: 7
+  reduce_lr_patience: 3
+  reduce_lr_factor: 0.5
+  min_lr: 0.0000001
+
+evaluation:
+  confidence_threshold: 0.50  # accept/reject in banking demo
+  benchmark_warmup: 5
+  benchmark_runs: 50
+
+demo:
+  title_ar: "نقطة التحقق المصرفية — تعرّف الوجوه تحت الإضاءة المنخفضة"
+  title_en: "Banking Checkpoint — Low-Light Face Recognition"
+  default_threshold: 0.50
+
+web:
+  arabic_font: "tajawal"  # tajawal | cairo — Google Fonts in Django templates
+  models:
+    - mobilenetv2
+    - mobilenetv1
+    - resnet50
+    - vgg16
+  database:
+    engine: sqlite3
+    path: "web/db.sqlite3"  # relative to project root; SQLite3 file
+    timeout_seconds: 20
+
+enrollment:
+  raw_dir: "data/enrollment/raw"
+  processed_dir: "data/processed/employees"
+  custom_mirror_dir: "data/raw/custom"
+  match_threshold: 0.72

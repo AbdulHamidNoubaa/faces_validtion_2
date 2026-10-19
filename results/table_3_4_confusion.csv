@@ -1,0 +1,5 @@
+experiment,tp,tn,fp,fn,n_misidentified
+E1,41,0,20,122,122
+E2,0,26,0,131,1
+E3,0,26,0,131,1
+E3b,59,0,20,104,104

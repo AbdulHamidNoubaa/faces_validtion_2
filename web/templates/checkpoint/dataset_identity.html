@@ -1,0 +1,44 @@
+{% extends "checkpoint/base.html" %}
+
+{% block title %}هوية: {{ identity }} — {{ site_title_ar }}{% endblock %}
+{% block header_title %}{{ identity }}{% endblock %}
+
+{% block content %}
+<div class="card mb-6">
+  <div class="card__header">
+    <h3 class="card__title">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      {{ identity }}
+    </h3>
+    <a href="{% url 'checkpoint:data_identities' %}" class="btn btn--ghost btn--sm">← كل الهويات</a>
+  </div>
+</div>
+
+{% for split_name, items in samples.items %}
+<div class="card mb-4">
+  <div class="card__header">
+    <h4 class="card__title text-sm">
+      <span class="badge badge--accent">{{ split_name }}</span>
+    </h4>
+  </div>
+  {% if items %}
+  <div class="gallery">
+    {% for s in items %}
+    {% if s.exists %}
+    <figure class="gallery__item">
+      <img src="{% url 'checkpoint:data_image' s.path %}" alt="{{ identity }}" loading="lazy" class="gallery__img">
+      <figcaption class="gallery__caption">
+        {% if s.low_light %}<span class="badge badge--warn badge--sm">LL</span>{% else %}<span class="badge badge--ok badge--sm">NL</span>{% endif %}
+      </figcaption>
+    </figure>
+    {% endif %}
+    {% empty %}
+    <p class="text-sm text-muted">لا توجد عينات في هذا ال split.</p>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="text-sm text-muted">لا توجد عينات.</p>
+  {% endif %}
+</div>
+{% endfor %}
+{% endblock %}

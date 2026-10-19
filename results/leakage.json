@@ -1,0 +1,17 @@
+{
+  "n_source_stems": 2248,
+  "n_processed_missing": 0,
+  "missing_processed_examples": [],
+  "same_source_in_more_than_one_split": [],
+  "n_same_source_across_splits": 0,
+  "same_source_more_than_once": [],
+  "n_duplicated_sources": 0,
+  "same_source_has_both_nl_and_ll": [],
+  "n_sources_with_both_nl_and_ll": 0,
+  "duplicate_processed_md5": [],
+  "n_duplicate_processed_md5": 0,
+  "n_raw_images_hashed": 2248,
+  "duplicate_raw_md5": [],
+  "n_duplicate_raw_md5": 0,
+  "leakage_found": false
+}

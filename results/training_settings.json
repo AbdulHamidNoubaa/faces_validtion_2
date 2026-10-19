@@ -1,0 +1,109 @@
+{
+  "optimizer": "adam",
+  "learning_rate_head": 0.001,
+  "learning_rate_finetune": 1e-05,
+  "batch_size": 32,
+  "epochs_head_config": 10,
+  "epochs_finetune_config": 12,
+  "epochs_recorded_in_history": 18,
+  "history_file": "outputs/logs/mobilenetv2_history.json",
+  "inferred_head_epochs_ran": 10,
+  "inferred_finetune_epochs_ran": 8,
+  "recorded_learning_rates": [
+    0.0010000000474974513,
+    0.0010000000474974513,
+    0.0010000000474974513,
+    0.0010000000474974513,
+    0.0010000000474974513,
+    0.0010000000474974513,
+    0.0010000000474974513,
+    0.0010000000474974513,
+    0.0010000000474974513,
+    0.0005000000237487257,
+    9.999999747378752e-06,
+    9.999999747378752e-06,
+    9.999999747378752e-06,
+    9.999999747378752e-06,
+    4.999999873689376e-06,
+    4.999999873689376e-06,
+    4.999999873689376e-06,
+    2.499999936844688e-06
+  ],
+  "loss": "sparse_categorical_crossentropy",
+  "embedding_units_config": 256,
+  "dropout": 0.3,
+  "freeze_base": true,
+  "unfreeze_last_n_layers": 30,
+  "early_stopping_patience": 7,
+  "reduce_lr_patience": 3,
+  "reduce_lr_factor": 0.5,
+  "min_lr": 1e-07,
+  "seed": 42,
+  "input_shape": [
+    224,
+    224,
+    3
+  ],
+  "sources": {
+    "loss": {
+      "file": "src/models/mobilenetv2_model.py",
+      "line": 68,
+      "text": "loss=\"sparse_categorical_crossentropy\","
+    },
+    "embedding_layer": {
+      "file": "src/models/mobilenetv2_model.py",
+      "line": 48,
+      "text": "x = layers.Dense(dense_units, activation=\"relu\", name=\"embedding\")(x)"
+    },
+    "optimizer_adam": {
+      "file": "src/models/mobilenetv2_model.py",
+      "line": 64,
+      "text": "optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)"
+    },
+    "epochs_fit_head": {
+      "file": "src/training/train.py",
+      "line": 128,
+      "text": "epochs=int(cfg[\"training\"][\"epochs_head\"]),"
+    },
+    "epochs_fit_ft": {
+      "file": "src/training/train.py",
+      "line": 149,
+      "text": "epochs=int(cfg[\"training\"][\"epochs_finetune\"]),"
+    },
+    "early_stopping": {
+      "file": "src/training/callbacks.py",
+      "line": 26,
+      "text": "tf.keras.callbacks.EarlyStopping("
+    },
+    "config_optimizer": {
+      "file": "config/config.yaml",
+      "line": 74,
+      "text": "optimizer: \"adam\"     # adam | sgd"
+    },
+    "config_lr": {
+      "file": "config/config.yaml",
+      "line": 73,
+      "text": "learning_rate: 0.001"
+    },
+    "config_batch": {
+      "file": "config/config.yaml",
+      "line": 70,
+      "text": "batch_size: 32"
+    },
+    "config_dense": {
+      "file": "config/config.yaml",
+      "line": 61,
+      "text": "dense_units: 256"
+    },
+    "config_ft_lr": {
+      "file": "config/config.yaml",
+      "line": 67,
+      "text": "fine_tune_learning_rate: 0.00001"
+    }
+  },
+  "best_model_exists": true,
+  "best_model_bytes": 25895360,
+  "final_model_exists": true,
+  "final_model_bytes": 25895360,
+  "best_model": "outputs/models/mobilenetv2_best.keras"
+}

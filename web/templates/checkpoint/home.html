@@ -1,0 +1,181 @@
+{% extends "checkpoint/base.html" %}
+{% load static %}
+
+{% block title %}التحقق من الهوية — {{ site_title_ar }}{% endblock %}
+{% block header_title %}نقطة التحقق{% endblock %}
+
+{% block content %}
+{% if not enrollment.can_verify_employees %}
+<div class="alert alert--warning">
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+  لا توجد صور موظفين جاهزة للتحقق. <a href="{% url 'checkpoint:employee_list' %}">سجّل موظفاً وارفع صوراً</a>
+</div>
+{% else %}
+<div class="alert alert--info">
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+  معرض التحقق: <strong>{{ enrollment.gallery_ready }}</strong> بصمة من <strong>{{ enrollment.active_employees }}</strong> موظف.
+</div>
+{% endif %}
+
+<div class="grid grid--sidebar">
+  <!-- Settings panel -->
+  <div class="card">
+    <div class="card__header">
+      <h3 class="card__title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        إعدادات التحقق
+      </h3>
+    </div>
+
+    <form method="post" enctype="multipart/form-data" id="verify-form"
+          action="{% url 'checkpoint:home' %}"
+          data-api-url="{% url 'checkpoint:api_verify' %}">
+      {% csrf_token %}
+
+      {% if form.non_field_errors %}
+      <div class="alert alert--error">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        {{ form.non_field_errors }}
+      </div>
+      {% endif %}
+
+      <div class="form-group">
+        <label class="form-label" for="id_verify_mode">{{ form.verify_mode.label }}</label>
+        {{ form.verify_mode }}
+        <p class="form-hint">«موظفو المصرف فقط» = مطابقة مع الصور المسجّلة فقط.</p>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="id_architecture">{{ form.architecture.label }}</label>
+        {{ form.architecture }}
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="id_threshold">{{ form.threshold.label }}: <strong id="threshold-val">{{ form.threshold.value|default:default_threshold }}</strong></label>
+        <input type="range" id="id_threshold_range" min="0.05" max="0.99" step="0.01"
+               value="{{ form.threshold.value|default:default_threshold }}"
+               class="form-range">
+        {{ form.threshold }}
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="id_brightness">{{ form.brightness.label }}: <strong id="brightness-val">{{ form.brightness.value|default:'1.0' }}</strong></label>
+        <input type="range" id="id_brightness_range" min="0.1" max="1" step="0.05"
+               value="{{ form.brightness.value|default:'1.0' }}"
+               class="form-range">
+        {{ form.brightness }}
+        <p class="form-hint">{{ form.brightness.help_text }}</p>
+      </div>
+
+      <!-- Tabs: upload / camera -->
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab tab--active" data-tab="upload">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-left:4px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          رفع صورة
+        </button>
+        <button type="button" class="tab" data-tab="camera">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-left:4px"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          الكاميرا
+        </button>
+      </div>
+
+      <div class="tab-panel tab-panel--active" id="panel-upload">
+        <div class="form-group">
+          <label class="form-label" for="id_image">{{ form.image.label }}</label>
+          {{ form.image }}
+          <p class="form-hint">{{ form.image.help_text }}</p>
+          {% if form.image.errors %}<p class="form-error">{{ form.image.errors.0 }}</p>{% endif %}
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-camera">
+        <div class="camera-area">
+          <video id="camera-video" playsinline autoplay muted class="camera-area__video"></video>
+          <canvas id="camera-canvas" style="display:none"></canvas>
+        </div>
+        <button type="button" id="camera-capture" class="btn btn--secondary btn--block mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          التقاط صورة
+        </button>
+        <p class="form-hint mt-2">يُستخدم نفس إعدادات النموذج أعلاه.</p>
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--block btn--lg mt-4" id="btn-submit-upload">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        تنفيذ التحقق
+      </button>
+    </form>
+  </div>
+
+  <!-- Result panel -->
+  <div class="card">
+    <div class="card__header">
+      <h3 class="card__title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        نتيجة التحقق
+      </h3>
+    </div>
+
+    {% if has_result %}
+    <div class="verify-result {% if result.accepted %}verify-result--ok{% else %}verify-result--fail{% endif %}">
+      <p class="verify-result__decision">{{ result.decision_ar }}</p>
+      <p class="verify-result__sub">{{ result.decision_en }}</p>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="metric__label">الهوية المتوقعة</div>
+        <div class="metric__value">{{ result.identity }}</div>
+      </div>
+      <div class="metric">
+        <div class="metric__label">درجة الثقة</div>
+        <div class="metric__value">{{ confidence_pct }}%</div>
+      </div>
+      <div class="metric">
+        <div class="metric__label">زمن المعالجة</div>
+        <div class="metric__value">{{ result.latency_ms|floatformat:1 }} ms</div>
+      </div>
+      <div class="metric">
+        <div class="metric__label">النموذج</div>
+        <div class="metric__value">{{ result.architecture }}</div>
+      </div>
+      <div class="metric">
+        <div class="metric__label">مصدر القرار</div>
+        <div class="metric__value">{% if result.match_source == 'employee_gallery' %}<span class="badge badge--ok">موظف مسجّل</span>{% else %}<span class="badge badge--neutral">تصنيف LFW</span>{% endif %}</div>
+      </div>
+      <div class="metric">
+        <div class="metric__label">كشف الوجه</div>
+        <div class="metric__value">{% if result.face_detected %}<span class="badge badge--ok"><span class="badge__dot"></span> نعم</span>{% else %}<span class="badge badge--warn">تقدير تقريبي</span>{% endif %}</div>
+      </div>
+    </div>
+
+    {% if preview_b64 %}
+    <figure class="preview-figure">
+      <figcaption class="preview-figure__caption">بعد المعالجة (CLAHE/Gamma + محاذاة)</figcaption>
+      <img src="data:image/jpeg;base64,{{ preview_b64 }}" alt="صورة معالجة" class="preview-figure__img">
+    </figure>
+    {% endif %}
+
+    <div class="confidence-bar mt-4">
+      <div class="confidence-bar__fill {% if result.accepted %}confidence-bar__fill--ok{% else %}confidence-bar__fill--fail{% endif %}" style="width: {{ confidence_pct }}%"></div>
+    </div>
+
+    <div id="camera-result" class="camera-result" style="display:none"></div>
+    {% else %}
+    <div class="empty-state">
+      <div class="empty-state__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div class="empty-state__title">في انتظار صورة للتحقق</div>
+      <div class="empty-state__desc">ارفع صورة أو التقط من الكاميرا، ثم اضغط «تنفيذ التحقق».</div>
+      <p class="text-xs text-muted mt-4">جرّب خفض شريط الإضاءة لاختبار الأداء في ظروف الإضاءة المنخفضة.</p>
+    </div>
+    <div id="camera-result" class="camera-result" style="display:none"></div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'checkpoint/js/checkpoint.js' %}"></script>
+{% endblock %}

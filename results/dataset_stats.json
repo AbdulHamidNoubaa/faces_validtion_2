@@ -1,0 +1,69 @@
+{
+  "splits_file": "data/processed/splits.json",
+  "num_classes_field": 30,
+  "label_map_size": 30,
+  "stored_counts": {
+    "train": 1570,
+    "val": 338,
+    "test": 340
+  },
+  "recounted_counts": {
+    "train": 1570,
+    "val": 338,
+    "test": 340
+  },
+  "counts_match_file_field": true,
+  "per_split": {
+    "train": {
+      "nl": 813,
+      "ll": 757,
+      "total": 1570,
+      "listed": 1570
+    },
+    "val": {
+      "nl": 161,
+      "ll": 177,
+      "total": 338,
+      "listed": 338
+    },
+    "test": {
+      "nl": 183,
+      "ll": 157,
+      "total": 340,
+      "listed": 340
+    }
+  },
+  "grand_total": 2248,
+  "images_per_identity_overall": {
+    "n_identities": 30,
+    "min": 32,
+    "max": 530,
+    "mean": 74.93333333333334,
+    "sum": 2248
+  },
+  "images_per_identity_by_split": {
+    "train": {
+      "n_identities": 30,
+      "min": 22,
+      "max": 371,
+      "mean": 52.333333333333336,
+      "sum": 1570
+    },
+    "val": {
+      "n_identities": 30,
+      "min": 5,
+      "max": 80,
+      "mean": 11.266666666666667,
+      "sum": 338
+    },
+    "test": {
+      "n_identities": 30,
+      "min": 5,
+      "max": 79,
+      "mean": 11.333333333333334,
+      "sum": 340
+    }
+  },
+  "suffix_flag_mismatches": 0,
+  "low_light_simulation_field": true
+}

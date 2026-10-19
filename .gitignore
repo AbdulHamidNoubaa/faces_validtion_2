@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.env
+
+# Data & outputs (keep folder placeholders)
+data/raw/**
+!data/raw/.gitkeep
+data/processed/**
+!data/processed/.gitkeep
+data/enrollment/**
+!data/README_DATA.md
+
+# Local Django database
+web/db.sqlite3
+outputs/models/**
+!outputs/models/.gitkeep
+outputs/logs/**
+!outputs/logs/.gitkeep
+outputs/reports/**
+!outputs/reports/.gitkeep
+!outputs/reports/evaluation_report.md
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Sklearn / TF caches
+~/scikit_learn_data/
+*.h5
+*.keras
+!outputs/models/.gitkeep
+

@@ -1,0 +1,965 @@
+{
+  "seed": 42,
+  "splits_file": "data/processed/splits.json",
+  "test_paths_sha256": "4970c3f5f65423974d51eabcf28e07a6ed72d1d7c323784221517397b22aa6cc",
+  "n_test": 340,
+  "held_out": {
+    "eligible_count": 30,
+    "eligible": [
+      "Alejandro_Toledo",
+      "Alvaro_Uribe",
+      "Andre_Agassi",
+      "Ariel_Sharon",
+      "Arnold_Schwarzenegger",
+      "Colin_Powell",
+      "Donald_Rumsfeld",
+      "George_W_Bush",
+      "Gerhard_Schroeder",
+      "Gloria_Macapagal_Arroyo",
+      "Hans_Blix",
+      "Hugo_Chavez",
+      "Jacques_Chirac",
+      "Jean_Chretien",
+      "Jennifer_Capriati",
+      "John_Ashcroft",
+      "Junichiro_Koizumi",
+      "Kofi_Annan",
+      "Laura_Bush",
+      "Lleyton_Hewitt",
+      "Luiz_Inacio_Lula_da_Silva",
+      "Megawati_Sukarnoputri",
+      "Nestor_Kirchner",
+      "Roh_Moo-hyun",
+      "Serena_Williams",
+      "Silvio_Berlusconi",
+      "Tom_Ridge",
+      "Tony_Blair",
+      "Vicente_Fox",
+      "Vladimir_Putin"
+    ],
+    "held_out": [
+      "Alejandro_Toledo",
+      "Ariel_Sharon",
+      "Gerhard_Schroeder",
+      "Luiz_Inacio_Lula_da_Silva",
+      "Roh_Moo-hyun"
+    ],
+    "selector": "random.Random(42).sample on sorted eligible identities"
+  },
+  "gallery": [
+    {
+      "path": "data/processed/images/train/Alvaro_Uribe/Alvaro_Uribe_0029_nl.jpg",
+      "identity": "Alvaro_Uribe",
+      "label": 1,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Alvaro_Uribe/Alvaro_Uribe_0032_nl.jpg",
+      "identity": "Alvaro_Uribe",
+      "label": 1,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Alvaro_Uribe/Alvaro_Uribe_0028_nl.jpg",
+      "identity": "Alvaro_Uribe",
+      "label": 1,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Alvaro_Uribe/Alvaro_Uribe_0031_nl.jpg",
+      "identity": "Alvaro_Uribe",
+      "label": 1,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Alvaro_Uribe/Alvaro_Uribe_0034_nl.jpg",
+      "identity": "Alvaro_Uribe",
+      "label": 1,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Andre_Agassi/Andre_Agassi_0002_nl.jpg",
+      "identity": "Andre_Agassi",
+      "label": 2,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Andre_Agassi/Andre_Agassi_0009_nl.jpg",
+      "identity": "Andre_Agassi",
+      "label": 2,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Andre_Agassi/Andre_Agassi_0033_nl.jpg",
+      "identity": "Andre_Agassi",
+      "label": 2,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Andre_Agassi/Andre_Agassi_0023_nl.jpg",
+      "identity": "Andre_Agassi",
+      "label": 2,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Andre_Agassi/Andre_Agassi_0029_nl.jpg",
+      "identity": "Andre_Agassi",
+      "label": 2,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Arnold_Schwarzenegger/Arnold_Schwarzenegger_0009_nl.jpg",
+      "identity": "Arnold_Schwarzenegger",
+      "label": 4,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Arnold_Schwarzenegger/Arnold_Schwarzenegger_0016_nl.jpg",
+      "identity": "Arnold_Schwarzenegger",
+      "label": 4,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Arnold_Schwarzenegger/Arnold_Schwarzenegger_0008_nl.jpg",
+      "identity": "Arnold_Schwarzenegger",
+      "label": 4,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Arnold_Schwarzenegger/Arnold_Schwarzenegger_0020_nl.jpg",
+      "identity": "Arnold_Schwarzenegger",
+      "label": 4,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Arnold_Schwarzenegger/Arnold_Schwarzenegger_0012_nl.jpg",
+      "identity": "Arnold_Schwarzenegger",
+      "label": 4,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Colin_Powell/Colin_Powell_0058_nl.jpg",
+      "identity": "Colin_Powell",
+      "label": 5,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Colin_Powell/Colin_Powell_0100_nl.jpg",
+      "identity": "Colin_Powell",
+      "label": 5,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Colin_Powell/Colin_Powell_0179_nl.jpg",
+      "identity": "Colin_Powell",
+      "label": 5,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Colin_Powell/Colin_Powell_0194_nl.jpg",
+      "identity": "Colin_Powell",
+      "label": 5,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Colin_Powell/Colin_Powell_0102_nl.jpg",
+      "identity": "Colin_Powell",
+      "label": 5,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Donald_Rumsfeld/Donald_Rumsfeld_0093_nl.jpg",
+      "identity": "Donald_Rumsfeld",
+      "label": 6,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Donald_Rumsfeld/Donald_Rumsfeld_0101_nl.jpg",
+      "identity": "Donald_Rumsfeld",
+      "label": 6,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Donald_Rumsfeld/Donald_Rumsfeld_0058_nl.jpg",
+      "identity": "Donald_Rumsfeld",
+      "label": 6,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Donald_Rumsfeld/Donald_Rumsfeld_0050_nl.jpg",
+      "identity": "Donald_Rumsfeld",
+      "label": 6,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Donald_Rumsfeld/Donald_Rumsfeld_0059_nl.jpg",
+      "identity": "Donald_Rumsfeld",
+      "label": 6,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/George_W_Bush/George_W_Bush_0513_nl.jpg",
+      "identity": "George_W_Bush",
+      "label": 7,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/George_W_Bush/George_W_Bush_0301_nl.jpg",
+      "identity": "George_W_Bush",
+      "label": 7,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/George_W_Bush/George_W_Bush_0322_nl.jpg",
+      "identity": "George_W_Bush",
+      "label": 7,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/George_W_Bush/George_W_Bush_0461_nl.jpg",
+      "identity": "George_W_Bush",
+      "label": 7,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/George_W_Bush/George_W_Bush_0309_nl.jpg",
+      "identity": "George_W_Bush",
+      "label": 7,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Gloria_Macapagal_Arroyo/Gloria_Macapagal_Arroyo_0038_nl.jpg",
+      "identity": "Gloria_Macapagal_Arroyo",
+      "label": 9,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Gloria_Macapagal_Arroyo/Gloria_Macapagal_Arroyo_0001_nl.jpg",
+      "identity": "Gloria_Macapagal_Arroyo",
+      "label": 9,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Gloria_Macapagal_Arroyo/Gloria_Macapagal_Arroyo_0031_nl.jpg",
+      "identity": "Gloria_Macapagal_Arroyo",
+      "label": 9,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Gloria_Macapagal_Arroyo/Gloria_Macapagal_Arroyo_0020_nl.jpg",
+      "identity": "Gloria_Macapagal_Arroyo",
+      "label": 9,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Gloria_Macapagal_Arroyo/Gloria_Macapagal_Arroyo_0028_nl.jpg",
+      "identity": "Gloria_Macapagal_Arroyo",
+      "label": 9,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Hans_Blix/Hans_Blix_0029_nl.jpg",
+      "identity": "Hans_Blix",
+      "label": 10,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Hans_Blix/Hans_Blix_0038_nl.jpg",
+      "identity": "Hans_Blix",
+      "label": 10,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Hans_Blix/Hans_Blix_0001_nl.jpg",
+      "identity": "Hans_Blix",
+      "label": 10,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Hans_Blix/Hans_Blix_0008_nl.jpg",
+      "identity": "Hans_Blix",
+      "label": 10,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Hans_Blix/Hans_Blix_0037_nl.jpg",
+      "identity": "Hans_Blix",
+      "label": 10,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Hugo_Chavez/Hugo_Chavez_0043_nl.jpg",
+      "identity": "Hugo_Chavez",
+      "label": 11,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Hugo_Chavez/Hugo_Chavez_0049_nl.jpg",
+      "identity": "Hugo_Chavez",
+      "label": 11,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Hugo_Chavez/Hugo_Chavez_0030_nl.jpg",
+      "identity": "Hugo_Chavez",
+      "label": 11,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Hugo_Chavez/Hugo_Chavez_0012_nl.jpg",
+      "identity": "Hugo_Chavez",
+      "label": 11,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Hugo_Chavez/Hugo_Chavez_0041_nl.jpg",
+      "identity": "Hugo_Chavez",
+      "label": 11,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jacques_Chirac/Jacques_Chirac_0042_nl.jpg",
+      "identity": "Jacques_Chirac",
+      "label": 12,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jacques_Chirac/Jacques_Chirac_0002_nl.jpg",
+      "identity": "Jacques_Chirac",
+      "label": 12,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jacques_Chirac/Jacques_Chirac_0035_nl.jpg",
+      "identity": "Jacques_Chirac",
+      "label": 12,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jacques_Chirac/Jacques_Chirac_0024_nl.jpg",
+      "identity": "Jacques_Chirac",
+      "label": 12,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jacques_Chirac/Jacques_Chirac_0023_nl.jpg",
+      "identity": "Jacques_Chirac",
+      "label": 12,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jean_Chretien/Jean_Chretien_0028_nl.jpg",
+      "identity": "Jean_Chretien",
+      "label": 13,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jean_Chretien/Jean_Chretien_0047_nl.jpg",
+      "identity": "Jean_Chretien",
+      "label": 13,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jean_Chretien/Jean_Chretien_0039_nl.jpg",
+      "identity": "Jean_Chretien",
+      "label": 13,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jean_Chretien/Jean_Chretien_0007_nl.jpg",
+      "identity": "Jean_Chretien",
+      "label": 13,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jean_Chretien/Jean_Chretien_0040_nl.jpg",
+      "identity": "Jean_Chretien",
+      "label": 13,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jennifer_Capriati/Jennifer_Capriati_0014_nl.jpg",
+      "identity": "Jennifer_Capriati",
+      "label": 14,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jennifer_Capriati/Jennifer_Capriati_0008_nl.jpg",
+      "identity": "Jennifer_Capriati",
+      "label": 14,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jennifer_Capriati/Jennifer_Capriati_0006_nl.jpg",
+      "identity": "Jennifer_Capriati",
+      "label": 14,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jennifer_Capriati/Jennifer_Capriati_0004_nl.jpg",
+      "identity": "Jennifer_Capriati",
+      "label": 14,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Jennifer_Capriati/Jennifer_Capriati_0033_nl.jpg",
+      "identity": "Jennifer_Capriati",
+      "label": 14,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/John_Ashcroft/John_Ashcroft_0022_nl.jpg",
+      "identity": "John_Ashcroft",
+      "label": 15,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/John_Ashcroft/John_Ashcroft_0008_nl.jpg",
+      "identity": "John_Ashcroft",
+      "label": 15,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/John_Ashcroft/John_Ashcroft_0007_nl.jpg",
+      "identity": "John_Ashcroft",
+      "label": 15,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/John_Ashcroft/John_Ashcroft_0009_nl.jpg",
+      "identity": "John_Ashcroft",
+      "label": 15,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/John_Ashcroft/John_Ashcroft_0037_nl.jpg",
+      "identity": "John_Ashcroft",
+      "label": 15,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Junichiro_Koizumi/Junichiro_Koizumi_0044_nl.jpg",
+      "identity": "Junichiro_Koizumi",
+      "label": 16,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Junichiro_Koizumi/Junichiro_Koizumi_0006_nl.jpg",
+      "identity": "Junichiro_Koizumi",
+      "label": 16,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Junichiro_Koizumi/Junichiro_Koizumi_0045_nl.jpg",
+      "identity": "Junichiro_Koizumi",
+      "label": 16,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Junichiro_Koizumi/Junichiro_Koizumi_0041_nl.jpg",
+      "identity": "Junichiro_Koizumi",
+      "label": 16,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Junichiro_Koizumi/Junichiro_Koizumi_0053_nl.jpg",
+      "identity": "Junichiro_Koizumi",
+      "label": 16,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Kofi_Annan/Kofi_Annan_0019_nl.jpg",
+      "identity": "Kofi_Annan",
+      "label": 17,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Kofi_Annan/Kofi_Annan_0017_nl.jpg",
+      "identity": "Kofi_Annan",
+      "label": 17,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Kofi_Annan/Kofi_Annan_0011_nl.jpg",
+      "identity": "Kofi_Annan",
+      "label": 17,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Kofi_Annan/Kofi_Annan_0006_nl.jpg",
+      "identity": "Kofi_Annan",
+      "label": 17,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Kofi_Annan/Kofi_Annan_0008_nl.jpg",
+      "identity": "Kofi_Annan",
+      "label": 17,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Laura_Bush/Laura_Bush_0028_nl.jpg",
+      "identity": "Laura_Bush",
+      "label": 18,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Laura_Bush/Laura_Bush_0027_nl.jpg",
+      "identity": "Laura_Bush",
+      "label": 18,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Laura_Bush/Laura_Bush_0040_nl.jpg",
+      "identity": "Laura_Bush",
+      "label": 18,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Laura_Bush/Laura_Bush_0036_nl.jpg",
+      "identity": "Laura_Bush",
+      "label": 18,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Laura_Bush/Laura_Bush_0004_nl.jpg",
+      "identity": "Laura_Bush",
+      "label": 18,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Lleyton_Hewitt/Lleyton_Hewitt_0018_nl.jpg",
+      "identity": "Lleyton_Hewitt",
+      "label": 19,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Lleyton_Hewitt/Lleyton_Hewitt_0007_nl.jpg",
+      "identity": "Lleyton_Hewitt",
+      "label": 19,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Lleyton_Hewitt/Lleyton_Hewitt_0038_nl.jpg",
+      "identity": "Lleyton_Hewitt",
+      "label": 19,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Lleyton_Hewitt/Lleyton_Hewitt_0027_nl.jpg",
+      "identity": "Lleyton_Hewitt",
+      "label": 19,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Lleyton_Hewitt/Lleyton_Hewitt_0013_nl.jpg",
+      "identity": "Lleyton_Hewitt",
+      "label": 19,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Megawati_Sukarnoputri/Megawati_Sukarnoputri_0025_nl.jpg",
+      "identity": "Megawati_Sukarnoputri",
+      "label": 21,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Megawati_Sukarnoputri/Megawati_Sukarnoputri_0001_nl.jpg",
+      "identity": "Megawati_Sukarnoputri",
+      "label": 21,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Megawati_Sukarnoputri/Megawati_Sukarnoputri_0031_nl.jpg",
+      "identity": "Megawati_Sukarnoputri",
+      "label": 21,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Megawati_Sukarnoputri/Megawati_Sukarnoputri_0028_nl.jpg",
+      "identity": "Megawati_Sukarnoputri",
+      "label": 21,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Megawati_Sukarnoputri/Megawati_Sukarnoputri_0021_nl.jpg",
+      "identity": "Megawati_Sukarnoputri",
+      "label": 21,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Nestor_Kirchner/Nestor_Kirchner_0007_nl.jpg",
+      "identity": "Nestor_Kirchner",
+      "label": 22,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Nestor_Kirchner/Nestor_Kirchner_0004_nl.jpg",
+      "identity": "Nestor_Kirchner",
+      "label": 22,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Nestor_Kirchner/Nestor_Kirchner_0011_nl.jpg",
+      "identity": "Nestor_Kirchner",
+      "label": 22,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Nestor_Kirchner/Nestor_Kirchner_0019_nl.jpg",
+      "identity": "Nestor_Kirchner",
+      "label": 22,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Nestor_Kirchner/Nestor_Kirchner_0024_nl.jpg",
+      "identity": "Nestor_Kirchner",
+      "label": 22,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Serena_Williams/Serena_Williams_0001_nl.jpg",
+      "identity": "Serena_Williams",
+      "label": 24,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Serena_Williams/Serena_Williams_0045_nl.jpg",
+      "identity": "Serena_Williams",
+      "label": 24,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Serena_Williams/Serena_Williams_0039_nl.jpg",
+      "identity": "Serena_Williams",
+      "label": 24,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Serena_Williams/Serena_Williams_0027_nl.jpg",
+      "identity": "Serena_Williams",
+      "label": 24,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Serena_Williams/Serena_Williams_0004_nl.jpg",
+      "identity": "Serena_Williams",
+      "label": 24,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Silvio_Berlusconi/Silvio_Berlusconi_0029_nl.jpg",
+      "identity": "Silvio_Berlusconi",
+      "label": 25,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Silvio_Berlusconi/Silvio_Berlusconi_0022_nl.jpg",
+      "identity": "Silvio_Berlusconi",
+      "label": 25,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Silvio_Berlusconi/Silvio_Berlusconi_0011_nl.jpg",
+      "identity": "Silvio_Berlusconi",
+      "label": 25,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Silvio_Berlusconi/Silvio_Berlusconi_0013_nl.jpg",
+      "identity": "Silvio_Berlusconi",
+      "label": 25,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Silvio_Berlusconi/Silvio_Berlusconi_0033_nl.jpg",
+      "identity": "Silvio_Berlusconi",
+      "label": 25,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Tom_Ridge/Tom_Ridge_0007_nl.jpg",
+      "identity": "Tom_Ridge",
+      "label": 26,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Tom_Ridge/Tom_Ridge_0015_nl.jpg",
+      "identity": "Tom_Ridge",
+      "label": 26,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Tom_Ridge/Tom_Ridge_0017_nl.jpg",
+      "identity": "Tom_Ridge",
+      "label": 26,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Tom_Ridge/Tom_Ridge_0013_nl.jpg",
+      "identity": "Tom_Ridge",
+      "label": 26,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Tom_Ridge/Tom_Ridge_0029_nl.jpg",
+      "identity": "Tom_Ridge",
+      "label": 26,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Tony_Blair/Tony_Blair_0038_nl.jpg",
+      "identity": "Tony_Blair",
+      "label": 27,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Tony_Blair/Tony_Blair_0051_nl.jpg",
+      "identity": "Tony_Blair",
+      "label": 27,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Tony_Blair/Tony_Blair_0095_nl.jpg",
+      "identity": "Tony_Blair",
+      "label": 27,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Tony_Blair/Tony_Blair_0071_nl.jpg",
+      "identity": "Tony_Blair",
+      "label": 27,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Tony_Blair/Tony_Blair_0082_nl.jpg",
+      "identity": "Tony_Blair",
+      "label": 27,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Vicente_Fox/Vicente_Fox_0024_nl.jpg",
+      "identity": "Vicente_Fox",
+      "label": 28,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Vicente_Fox/Vicente_Fox_0001_nl.jpg",
+      "identity": "Vicente_Fox",
+      "label": 28,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Vicente_Fox/Vicente_Fox_0025_nl.jpg",
+      "identity": "Vicente_Fox",
+      "label": 28,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Vicente_Fox/Vicente_Fox_0013_nl.jpg",
+      "identity": "Vicente_Fox",
+      "label": 28,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Vicente_Fox/Vicente_Fox_0019_nl.jpg",
+      "identity": "Vicente_Fox",
+      "label": 28,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Vladimir_Putin/Vladimir_Putin_0034_nl.jpg",
+      "identity": "Vladimir_Putin",
+      "label": 29,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Vladimir_Putin/Vladimir_Putin_0026_nl.jpg",
+      "identity": "Vladimir_Putin",
+      "label": 29,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Vladimir_Putin/Vladimir_Putin_0046_nl.jpg",
+      "identity": "Vladimir_Putin",
+      "label": 29,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Vladimir_Putin/Vladimir_Putin_0029_nl.jpg",
+      "identity": "Vladimir_Putin",
+      "label": 29,
+      "low_light": false,
+      "split": "train"
+    },
+    {
+      "path": "data/processed/images/train/Vladimir_Putin/Vladimir_Putin_0044_nl.jpg",
+      "identity": "Vladimir_Putin",
+      "label": 29,
+      "low_light": false,
+      "split": "train"
+    }
+  ],
+  "gallery_per_identity": {
+    "Alvaro_Uribe": 5,
+    "Andre_Agassi": 5,
+    "Arnold_Schwarzenegger": 5,
+    "Colin_Powell": 5,
+    "Donald_Rumsfeld": 5,
+    "George_W_Bush": 5,
+    "Gloria_Macapagal_Arroyo": 5,
+    "Hans_Blix": 5,
+    "Hugo_Chavez": 5,
+    "Jacques_Chirac": 5,
+    "Jean_Chretien": 5,
+    "Jennifer_Capriati": 5,
+    "John_Ashcroft": 5,
+    "Junichiro_Koizumi": 5,
+    "Kofi_Annan": 5,
+    "Laura_Bush": 5,
+    "Lleyton_Hewitt": 5,
+    "Megawati_Sukarnoputri": 5,
+    "Nestor_Kirchner": 5,
+    "Serena_Williams": 5,
+    "Silvio_Berlusconi": 5,
+    "Tom_Ridge": 5,
+    "Tony_Blair": 5,
+    "Vicente_Fox": 5,
+    "Vladimir_Putin": 5
+  },
+  "gallery_identities_with_fewer_than_3": [],
+  "test_face_detected": 205,
+  "gallery_face_detected": 125,
+  "n_replayed": 2248,
+  "sample_paths": [
+    "data/processed/images/test/George_W_Bush/George_W_Bush_0051_ll.jpg",
+    "data/processed/images/test/George_W_Bush/George_W_Bush_0354_ll.jpg",
+    "data/processed/images/test/Gerhard_Schroeder/Gerhard_Schroeder_0069_ll.jpg",
+    "data/processed/images/test/Donald_Rumsfeld/Donald_Rumsfeld_0025_ll.jpg",
+    "data/processed/images/test/Tony_Blair/Tony_Blair_0018_ll.jpg",
+    "data/processed/images/test/Colin_Powell/Colin_Powell_0061_ll.jpg"
+  ]
+}

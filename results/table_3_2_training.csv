@@ -1,0 +1,16 @@
+item,value
+optimizer,adam
+learning_rate_head,0.001
+learning_rate_finetune,1e-05
+batch_size,32
+epochs_head_config,10
+epochs_finetune_config,12
+epochs_recorded_in_history,18
+inferred_head_epochs_ran,10
+inferred_finetune_epochs_ran,8
+loss,sparse_categorical_crossentropy
+embedding_units_config,256
+embedding_dim_runtime,256
+dropout,0.3
+early_stopping_patience,7
+model_param_count,2593630

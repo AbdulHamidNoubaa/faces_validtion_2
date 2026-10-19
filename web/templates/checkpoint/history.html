@@ -1,0 +1,72 @@
+{% extends "checkpoint/base.html" %}
+
+{% block title %}سجل التحقق — {{ site_title_ar }}{% endblock %}
+{% block header_title %}سجل العمليات{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card__header">
+    <h3 class="card__title">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
+      سجل عمليات التحقق
+    </h3>
+    <span class="badge badge--neutral">{{ total_count }} سجل</span>
+  </div>
+
+  {% if logs %}
+  <div class="table-toolbar">
+    <div class="table-search">
+      <input type="text" class="table-search__input" placeholder="بحث في السجلات..." data-table-search="history-table">
+      <span class="table-search__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </span>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="table" id="history-table">
+      <thead>
+        <tr>
+          <th>الوقت</th>
+          <th>المستخدم</th>
+          <th>الهوية</th>
+          <th>القرار</th>
+          <th>الثقة</th>
+          <th>النموذج</th>
+          <th>المصدر</th>
+          <th>ms</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for log in logs %}
+        <tr>
+          <td>{{ log.created_at|date:"Y-m-d H:i:s" }}</td>
+          <td>{% if log.performed_by %}{{ log.performed_by.username }}{% else %}—{% endif %}</td>
+          <td>{{ log.identity_predicted }}</td>
+          <td>
+            {% if log.accepted %}
+            <span class="badge badge--ok"><span class="badge__dot"></span> مقبول</span>
+            {% else %}
+            <span class="badge badge--fail"><span class="badge__dot"></span> مرفوض</span>
+            {% endif %}
+          </td>
+          <td>{{ log.confidence|floatformat:2 }}</td>
+          <td><span class="badge badge--neutral">{{ log.architecture }}</span></td>
+          <td>{{ log.get_source_display }}</td>
+          <td>{{ log.latency_ms|floatformat:0 }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-state">
+    <div class="empty-state__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg>
+    </div>
+    <div class="empty-state__title">لا توجد سجلات بعد</div>
+    <div class="empty-state__desc">نفّذ تحققاً من نقطة التحقق لتظهر هنا.</div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

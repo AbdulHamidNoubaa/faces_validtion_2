@@ -1,0 +1,57 @@
+{
+  "n_ll_images": 1091,
+  "n_face_box_found": 1086,
+  "psnr_definition": "10*log10(255^2/MSE) on registered 224 BGR crops; MSE over H*W*C",
+  "ssim_definition": "skimage.metrics.structural_similarity grayscale win_size=11 gaussian sigma=1.5",
+  "registration": "Face box detected on the original NL frame, then applied to both NL and LL before resize.",
+  "psnr_before": {
+    "n": 1091,
+    "mean": 5.976478725846173,
+    "std": 1.289043402068504,
+    "min": 3.1572398717478745,
+    "max": 11.642185521242043
+  },
+  "psnr_after": {
+    "n": 1091,
+    "mean": 7.3935672746743935,
+    "std": 1.4768268470928314,
+    "min": 4.243489186512902,
+    "max": 13.665756838005532
+  },
+  "ssim_before": {
+    "n": 1091,
+    "mean": 0.06785926458789142,
+    "std": 0.0304515807579808,
+    "min": 0.02177830990370637,
+    "max": 0.21973586278521226
+  },
+  "ssim_after": {
+    "n": 1091,
+    "mean": 0.17383947311072484,
+    "std": 0.04438074747072005,
+    "min": 0.07923076078797274,
+    "max": 0.3598914987594995
+  },
+  "psnr_improvement": {
+    "n": 1091,
+    "mean": 1.4170885488282206,
+    "std": 0.36580432973392946,
+    "min": 0.8102445982989881,
+    "max": 2.7593054826712695
+  },
+  "ssim_improvement": {
+    "n": 1091,
+    "mean": 0.10598020852283341,
+    "std": 0.021222511907045282,
+    "min": 0.04005817184497722,
+    "max": 0.20225358709424182
+  },
+  "jpeg_mae_replay_enhanced_vs_stored": {
+    "n": 465,
+    "mean": 1.6694290887924932,
+    "std": 0.7438902804430679,
+    "min": 0.9582469463348389,
+    "max": 3.6980695724487305
+  },
+  "n_jpeg_compared": 465
+}
