@@ -1,0 +1,13 @@
+{
+  "model_path": "C:\\Users\\zl0918\\OneDrive - Zallaf\\Documents\\hikk\\banking-face-recognition-lowlight\\outputs\\models\\mobilenetv2_best.keras",
+  "warmup": 2,
+  "runs": 10,
+  "mean_ms": 143.70417999925849,
+  "std_ms": 13.738014340703227,
+  "p50_ms": 142.5251999989996,
+  "p95_ms": 162.77651999826048,
+  "min_ms": 121.57619999925373,
+  "max_ms": 165.49559999839403,
+  "size_mb": 24.69573974609375,
+  "num_params": 2593630
+}

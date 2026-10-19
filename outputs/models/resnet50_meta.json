@@ -1,0 +1,6 @@
+{
+  "architecture": "resnet50",
+  "num_classes": 30,
+  "final_model": "outputs/models/resnet50_final.keras",
+  "best_checkpoint": "outputs/models/resnet50_best.keras"
+}

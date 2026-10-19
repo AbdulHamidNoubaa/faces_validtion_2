@@ -1,0 +1,36 @@
+                           precision    recall  f1-score   support
+
+         Alejandro_Toledo       0.67      0.33      0.44         6
+             Alvaro_Uribe       1.00      0.17      0.29         6
+             Andre_Agassi       0.50      0.17      0.25         6
+             Ariel_Sharon       1.00      0.27      0.43        11
+    Arnold_Schwarzenegger       0.00      0.00      0.00         7
+             Colin_Powell       1.00      0.50      0.67        36
+          Donald_Rumsfeld       0.91      0.56      0.69        18
+            George_W_Bush       0.42      0.87      0.56        79
+        Gerhard_Schroeder       0.75      0.18      0.29        17
+  Gloria_Macapagal_Arroyo       1.00      0.33      0.50         6
+                Hans_Blix       0.60      0.50      0.55         6
+              Hugo_Chavez       0.14      0.30      0.19        10
+           Jacques_Chirac       1.00      0.25      0.40         8
+            Jean_Chretien       0.67      0.22      0.33         9
+        Jennifer_Capriati       0.20      0.43      0.27         7
+            John_Ashcroft       0.67      0.25      0.36         8
+        Junichiro_Koizumi       1.00      0.44      0.62         9
+               Kofi_Annan       0.50      0.40      0.44         5
+               Laura_Bush       1.00      0.67      0.80         6
+           Lleyton_Hewitt       0.00      0.00      0.00         6
+Luiz_Inacio_Lula_da_Silva       0.60      0.43      0.50         7
+    Megawati_Sukarnoputri       1.00      0.40      0.57         5
+          Nestor_Kirchner       0.20      0.20      0.20         5
+             Roh_Moo-hyun       1.00      0.20      0.33         5
+          Serena_Williams       1.00      0.25      0.40         8
+        Silvio_Berlusconi       0.00      0.00      0.00         5
+                Tom_Ridge       0.00      0.00      0.00         5
+               Tony_Blair       0.24      0.48      0.32        21
+              Vicente_Fox       0.29      0.40      0.33         5
+           Vladimir_Putin       0.33      0.12      0.18         8
+
+                 accuracy                           0.46       340
+                macro avg       0.59      0.31      0.36       340
+             weighted avg       0.60      0.46      0.44       340

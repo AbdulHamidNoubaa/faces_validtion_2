@@ -1,0 +1,8 @@
+{
+  "source": "sklearn.datasets.fetch_lfw_people",
+  "min_images_per_identity": 10,
+  "max_identities": 30,
+  "num_identities": 30,
+  "num_images": 2248,
+  "note": "Academic use; low-light may be synthetically applied later."
+}

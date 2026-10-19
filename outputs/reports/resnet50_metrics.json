@@ -1,0 +1,11 @@
+{
+  "architecture": "resnet50",
+  "model_path": "C:\\Users\\zl0918\\OneDrive - Zallaf\\Documents\\hikk\\banking-face-recognition-lowlight\\outputs\\models\\resnet50_best.keras",
+  "num_test_samples": 340,
+  "accuracy": 0.5352941176470588,
+  "precision_macro": 0.6811661486661487,
+  "recall_macro": 0.3986729687399828,
+  "f1_macro": 0.46456277423631026,
+  "auc_ovr_macro": 0.8995192103188452,
+  "auc_micro": 0.9288351628683927
+}

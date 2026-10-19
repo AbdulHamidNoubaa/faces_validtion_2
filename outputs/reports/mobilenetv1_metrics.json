@@ -1,0 +1,11 @@
+{
+  "architecture": "mobilenetv1",
+  "model_path": "C:\\Users\\zl0918\\OneDrive - Zallaf\\Documents\\hikk\\banking-face-recognition-lowlight\\outputs\\models\\mobilenetv1_best.keras",
+  "num_test_samples": 340,
+  "accuracy": 0.4588235294117647,
+  "precision_macro": 0.589135575137632,
+  "recall_macro": 0.3106612601567926,
+  "f1_macro": 0.3639668743234213,
+  "auc_ovr_macro": 0.8638906502804133,
+  "auc_micro": 0.9002258083760888
+}
